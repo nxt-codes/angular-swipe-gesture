@@ -1,27 +1,73 @@
-# AngularSwipeGesture
+# angular-swipe-gesture
+It's a simple model of an iPhone made only with HTML and tailwind. This project was created to demonstrate the use of tailwindcss and how to create a simple model of an iPhone. In the next Projects, this content will be used to create some more features.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+## Demo
+[Demo](https://nxt-codes.github.io/angular-swipe-gesture/)
 
-## Development server
+## Creating the application
+As we are using npm, create a package.json file if it doesn't exist:
+```bash
+ng new angular-swipe-gesture
+cd angular-swipe-gesture
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Install the dependencies to use tailwindcss:
+```bash
+npm install -D tailwindcss postcss@latest autoprefixer@latest
+npx tailwindcss init
+```
 
-## Code scaffolding
+In the tailwind.config.js file, add the following code:
+```javascript
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{scss,html,js}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Add the following lines to the style.sass file:
+```sass
+@tailwind base
+@tailwind components
+@tailwind utilities
+```
 
-## Build
+## Test
+By the following command, you can test the application:
+```bash
+ng serve
+```
+With the application running, access the address http://localhost:4200/ to see the result.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Add the iPhone dummy
+In the `app.component.html` file, clear the content and add the  code of the `index.html` from [Tailwind iPhone Project](https://github.com/nxt-codes/tailwind-iphone). Configure the `app.component.sass` and the `tailwind.config.js` files shown in the project and you will have the iPhone model in your application.
 
-## Running unit tests
+## Add the bottom-sheet and the swipe gesture
+Angular Projects are build by components. So, let's create a new component to represent the bottom-sheet. Run the following command:
+```bash
+cd src/app
+ng generate component bottom-sheet
+# or shorthand: ng g c bottom-sheet
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+In the `bottom-sheet.component.html` and `bottom-sheet.component.ts` files, add the code of the view and the logic.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+To show the bottom-sheet, we need to add the following code to the `app.component.html` file:
+```html
+<app-bottom-sheet></app-bottom-sheet>
+```
+It will prompt a error because the bottom-sheet is not being imported. To fix it, add the following line to the `app.module.ts` file:
+```typescript
+import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
+...
+@NgModule({
+  imports: [
+    BottomSheetComponent
+  ],
+  ...
+})
+```
