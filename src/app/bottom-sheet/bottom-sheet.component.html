@@ -1,11 +1,11 @@
-<div class="absolute right-0 bottom-0 left-0 h-80 p-4 bg-secondary rounded-t-lg shadow-lg z-40" *ngIf="show">
-    <!-- <div class="absolute right-40 top-2 left-40 h-1 bg-dark rounded-full z-30" (click)="swipeOut()">
-        <span class="sr-only">Gesture Button</span>
+<div class="absolute right-0 bottom-0 left-0 h-80 p-4 bg-secondary rounded-t-lg shadow-lg z-40" *ngIf="show" @slideOutBottom>
+    <div class="absolute right-40 top-2 left-40 h-1 bg-dark rounded-full z-30">
+        <span class="sr-only">Gesture Indicator</span>
     </div>
     <div class="absolute right-0 top-0 left-0 h-8 bg-transparent z-100" swipeDown (swipedDown)="swipeOut()">
         <span class="sr-only">Gesture Box</span>
-    </div> -->
-    <div class="absolute top-8 right-4 bottom-8 left-4 text-white overflow-hidden" (click)="swipeOut()">
+    </div>
+    <div class="absolute top-8 right-4 bottom-8 left-4 text-white overflow-hidden">
         <h5 class="text-lg font-semibold dark:text-white">Bottom sheet</h5>
         <p class="text-sm text-dark">This bottom sheet shows an example of the implemented <span class="text-accent">SwipeDownDirective</span>.</p>
         <div class="flex mt-4 h-24 w-full justify-center text-static_gray">
