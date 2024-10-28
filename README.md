@@ -1,5 +1,5 @@
 # angular-swipe-gesture
-It's a simple model of an iPhone made only with HTML and tailwind. This project was created to demonstrate the use of tailwindcss and how to create a simple model of an iPhone. In the next Projects, this content will be used to create some more features.
+In this project, we will create a simple bottom-sheet that can be dismissed by swiping down. The project is created using Angular and TailwindCSS. The bottom-sheet is created as a component and the swipe gesture is created as a directive. The bottom-sheet can be dismissed by clicking on the dismiss button or by swiping down on the bottom-sheet.
 
 ## Demo
 [Demo](https://nxt-codes.github.io/angular-swipe-gesture/)
